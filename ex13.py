@@ -23,8 +23,8 @@ class TestUserAgent:
     def test_user_agent(self, user_agent, expected_values):
         response = requests.get("https://playground.learnqa.ru/ajax/api/user_agent_check",
                                 headers={"User-Agent": user_agent})
-        keys = expected_values.keys()
-        for key in keys:
-            fact = response.json()[key]
-            expect = expected_values.get(key)
-            assert fact == expect, f"User agent: {user_agent} \n Wrong parameter {key}"
+        patameters = expected_values.keys()
+        for parameter in patameters:
+            fact = response.json()[parameter]
+            expect = expected_values.get(parameter)
+            assert fact == expect, f"User agent: {user_agent} \n Wrong parameter {parameter}"
